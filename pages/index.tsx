@@ -4,6 +4,9 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 import { getSortedPostsData, PostData } from '../lib/posts';
+import Layout, { siteTitle } from '../components/Layout';
+import utilStyles from '../styles/utils.module.css';
+import { GetStaticProps } from 'next'
 
 export const getStaticProps:GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
@@ -13,10 +16,6 @@ export const getStaticProps:GetStaticProps = async () => {
     },
   };
 }
-
-import Layout, { siteTitle } from '../components/Layout';
-import utilStyles from '../styles/utils.module.css';
-import { GetStaticProps } from 'next'
 
 const Home = ({allPostsData} : {allPostsData: PostData[]}) => {
   return (
